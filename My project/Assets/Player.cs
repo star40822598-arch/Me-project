@@ -20,9 +20,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && (Input.GetKeyDown(KeyCode.Space)|| ArduinoSerialPOC.GetButtonDown("JUMP")) )
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            animator.SetTrigger("Jump");
         }
     }
 
