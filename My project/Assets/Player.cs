@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (isGrounded && (Input.GetKeyDown(KeyCode.Space)|| ArduinoSerialPOC.GetButtonDown("JUMP")) )
+        if (isGrounded && (Input.GetKeyDown(KeyCode.Space)))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.SetTrigger("Jump");
@@ -67,15 +67,7 @@ public class Player : MonoBehaviour
             animator.SetBool("isWALK", false);
         }
 
-        void OnCollisionStay(Collision collision)
-        {
-            isGrounded = true;
-        }
 
-        void OnCollisionExit(Collision collision)
-        {
-            isGrounded = false;
-        }
     }
 }
     
